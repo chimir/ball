@@ -1,0 +1,204 @@
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Шаблон футбольного мяча</title>
+    <style>
+        body {
+            color: #2C2C34;
+            font-size: 16px;
+            line-height: 1.5;
+            font-family: Arial, Helvetica, sans-serif;
+            min-width: 320px;
+            margin: 0;
+        }
+        .ball {
+            padding: 40px 16px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 375px) {
+            .ball {
+                padding-right: 32px;
+                padding-left: 32px;
+            }
+        }
+
+        .ball__title {
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .ball__title {
+                font-size: 24px;
+            }
+        }
+
+        .ball__result-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .ball__result-wrapper svg {
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .ball__result {
+            min-width: 72px;
+            padding: 8px 12px;
+            text-align: center;
+            font-size: 24px;
+            line-height: 1;
+            font-weight: 700;
+            outline: solid 2px #DC143C;
+            border-radius: 4px;
+        }
+
+        .ball__input {
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: top;
+            width: 100%;
+        }
+
+        .ball__input-label {
+            color: #978897;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .ball__input-field {
+            display: block;
+            width: 100%;
+            padding: 11px 16px;
+            font-family: inherit;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+            border: 1px solid #978897;
+            border-radius: 4px;
+            box-shadow: none;
+            background: none;
+            margin: 0;
+        }
+
+        .ball__form-inner {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .is-btn-reset {
+            padding: 0;
+            font-family: inherit;
+            border: none;
+            border-radius: 0;
+            background: none;
+            cursor: pointer;
+        }
+
+        .ball__copy {
+            flex-shrink: 0;
+            position: absolute;
+            left: 100%;
+            width: 32px;
+            padding: 8px;
+            fill: #B18FCF;
+        }
+
+        .ball__btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 114px;
+            min-height: 48px;
+            padding: 10px 28px;
+            font-family: inherit;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+            text-decoration: none;
+            text-align: center;
+            color: #fff;
+            border: 2px solid #494850;
+            border-radius: 8px;
+            background-color: #494850;
+            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .ball__btn:hover,
+        .ball__btn:focus {
+            color: #2C2C34;
+            border-color: #B18FCF;
+            background-color: #B18FCF;
+        }
+
+        .ball__btn:active {
+            transform: scale(0.9);
+        }
+
+    </style>
+</head>
+<body>
+<div class="ball">
+    <h1 class="ball__title">Шаблон футбольного мяча</h1>
+
+    <div class="ball__form">
+        <div class="ball__input">
+            <label class="ball__input-label" for="diameter">Диаметр мяча:</label>
+            <input type="number" id="diameter" class="ball__input-field js-diameter">
+        </div>
+
+        <div class="ball__form-inner">
+            <div class="ball__input">
+                <label class="ball__input-label" for="decimal-places">Цифр после запятой:</label>
+                <input type="number" id="decimal-places" class="ball__input-field js-decimal-places" value="2" min="0" max="5">
+            </div>
+            <button class="ball__btn is-btn-reset js-button">Вычислить</button>
+        </div>
+    </div>
+
+    <div class="ball__result-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161 139.56">
+            <polygon points="120.5 0.5 40.5 0.5 0.5 69.78 40.5 139.06 120.5 139.06 160.5 69.78 120.5 0.5" fill="#D8D8F6" stroke="#494850" stroke-linejoin="round"/>
+        </svg>
+
+        <div class="ball__result js-result">0</div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161 124.18">
+            <polygon points="80.5 123.61 15.8 76.61 40.52 0.55 120.48 0.55 145.2 76.61 80.5 123.61" fill="#D8D8F6" stroke="#494850" stroke-linejoin="round"/>
+        </svg>
+    </div>
+</div>
+
+<script>
+    const button = document.querySelector('.js-button');
+    const input = document.querySelector('.js-diameter');
+    const result = document.querySelector('.js-result');
+    const decimalPlaces = document.querySelector('.js-decimal-places');
+    const COUNT = 15; // 5 сторон пятиугольников и 5 длинных диагоналей шестиугольников (их диагональ ровна двум сторонам) - 5 + 5*2
+
+    const calculateCircumference = (diameter) => {
+        return Math.PI * diameter;
+    }
+
+    button.addEventListener('click', () => {
+        const diameter = input.value;
+        const decimalPlacesValue = decimalPlaces.value
+        const sideLength = calculateCircumference(diameter) / COUNT;
+        console.log(calculateCircumference(diameter) / COUNT, input.value);
+        result.innerText = sideLength.toFixed(decimalPlacesValue);
+    })
+</script>
+</body>
+</html>
