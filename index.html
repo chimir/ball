@@ -4,150 +4,11 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Шаблон футбольного мяча</title>
-    <style>
-        body {
-            color: #2C2C34;
-            font-size: 16px;
-            line-height: 1.5;
-            font-family: Arial, Helvetica, sans-serif;
-            min-width: 320px;
-            margin: 0;
-        }
-        .ball {
-            padding: 40px 16px;
-            max-width: 400px;
-            margin: 0 auto;
-        }
 
-        @media (min-width: 375px) {
-            .ball {
-                padding-right: 32px;
-                padding-left: 32px;
-            }
-        }
+    <link href="favicon.ico" rel="shortcut icon">
 
-        .ball__title {
-            font-size: 20px;
-            margin-top: 0;
-            margin-bottom: 24px;
-        }
-
-        @media (min-width: 768px) {
-            .ball__title {
-                font-size: 24px;
-            }
-        }
-
-        .ball__result-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            margin-top: 40px;
-        }
-
-        .ball__result-wrapper svg {
-            width: 100%;
-            max-width: 200px;
-        }
-
-        .ball__result {
-            min-width: 72px;
-            padding: 8px 12px;
-            text-align: center;
-            font-size: 24px;
-            line-height: 1;
-            font-weight: 700;
-            outline: solid 2px #DC143C;
-            border-radius: 4px;
-        }
-
-        .ball__input {
-            position: relative;
-            display: inline-flex;
-            flex-direction: column;
-            vertical-align: top;
-            width: 100%;
-        }
-
-        .ball__input-label {
-            color: #978897;
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-
-        .ball__input-field {
-            display: block;
-            width: 100%;
-            padding: 11px 16px;
-            font-family: inherit;
-            font-size: 16px;
-            line-height: 24px;
-            font-weight: 400;
-            border: 1px solid #978897;
-            border-radius: 4px;
-            box-shadow: none;
-            background: none;
-            margin: 0;
-        }
-
-        .ball__form-inner {
-            display: flex;
-            align-items: flex-end;
-            gap: 8px;
-            margin-top: 16px;
-        }
-
-        .is-btn-reset {
-            padding: 0;
-            font-family: inherit;
-            border: none;
-            border-radius: 0;
-            background: none;
-            cursor: pointer;
-        }
-
-        .ball__copy {
-            flex-shrink: 0;
-            position: absolute;
-            left: 100%;
-            width: 32px;
-            padding: 8px;
-            fill: #B18FCF;
-        }
-
-        .ball__btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            min-width: 114px;
-            min-height: 48px;
-            padding: 10px 28px;
-            font-family: inherit;
-            font-size: 16px;
-            line-height: 24px;
-            font-weight: 400;
-            text-decoration: none;
-            text-align: center;
-            color: #fff;
-            border: 2px solid #494850;
-            border-radius: 8px;
-            background-color: #494850;
-            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out;
-            cursor: pointer;
-        }
-        .ball__btn:hover,
-        .ball__btn:focus {
-            color: #2C2C34;
-            border-color: #B18FCF;
-            background-color: #B18FCF;
-        }
-
-        .ball__btn:active {
-            transform: scale(0.9);
-        }
-
-    </style>
+    <link href="./style/style.css" rel="stylesheet"  type="text/css" />
+    <link href="./style/print.css" rel="stylesheet" media="print" />
 </head>
 <body>
 <div class="ball">
@@ -179,7 +40,26 @@
             <polygon points="80.5 123.61 15.8 76.61 40.52 0.55 120.48 0.55 145.2 76.61 80.5 123.61" fill="#D8D8F6" stroke="#494850" stroke-linejoin="round"/>
         </svg>
     </div>
+
+    <button class="ball__print-button js-print-button is-btn-reset is-hide">
+        распечатать
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48">
+            <path d="M43 15h-6V8.4a1 1 0 0 0-1-1H12a1 1 0 0 0-1 1V15H5a1 1 0 0 0-1 1v18.39a1 1 0 0 0 1 1h5.13a1 1 0 0 0 .46-.12v5.83h26.26v-5.71H43a1 1 0 0 0 1-1V16a1 1 0 0 0-1-1ZM13 9.4h22V15H13Zm21.85 29.7H12.59V27.45h22.26ZM42 33.39h-5.15v-7.94H10.59v8.06a1 1 0 0 0-.46-.12H6V17h36Z"/>
+            <path d="M31.54 20.26a1 1 0 0 0 0 2H36a1 1 0 0 0 0-2Z"/>
+        </svg>
+    </button>
 </div>
+
+<div class="print">
+    <svg class="print__hexagon js-hexagon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161 139.56">
+        <polygon points="120.5 0.5 40.5 0.5 0.5 69.78 40.5 139.06 120.5 139.06 160.5 69.78 120.5 0.5" fill="none" stroke="#1d1d1b" stroke-linejoin="round"/>
+    </svg>
+
+    <svg class="print__pentagon js-pentagon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.39 124.06">
+        <polygon points="65.2 123.56 0.5 76.55 25.21 0.5 105.18 0.5 129.89 76.55 65.2 123.56" fill="none" stroke="#000" stroke-linejoin="round"/>
+    </svg>
+</div>
+
 
 <script>
     const button = document.querySelector('.js-button');
@@ -187,6 +67,10 @@
     const result = document.querySelector('.js-result');
     const decimalPlaces = document.querySelector('.js-decimal-places');
     const COUNT = 15; // 5 сторон пятиугольников и 5 длинных диагоналей шестиугольников (их диагональ ровна двум сторонам) - 5 + 5*2
+
+    const hexagon = document.querySelector('.js-hexagon');
+    const pentagon = document.querySelector('.js-pentagon');
+    const printButton = document.querySelector('.js-print-button');
 
     const calculateCircumference = (diameter) => {
         return Math.PI * diameter;
@@ -196,8 +80,23 @@
         const diameter = input.value;
         const decimalPlacesValue = decimalPlaces.value
         const sideLength = calculateCircumference(diameter) / COUNT;
-        console.log(calculateCircumference(diameter) / COUNT, input.value);
         result.innerText = sideLength.toFixed(decimalPlacesValue);
+
+        if(diameter.length && diameter !== '0') {
+            printButton.classList.remove('is-hide');
+        } else {
+            printButton.classList.add('is-hide');
+        }
+
+        const hexagonWidth = sideLength * 2;
+        const pentagonWidth = sideLength * 2 * Math.cos(36 * (Math.PI / 180));
+
+        hexagon.style.setProperty('--hexagonWidth', `${hexagonWidth}cm`);
+        pentagon.style.setProperty('--pentagonWidth', `${pentagonWidth}cm`);
+    })
+
+    printButton.addEventListener('click', () => {
+        window.print()
     })
 </script>
 </body>

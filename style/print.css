@@ -1,0 +1,19 @@
+@media print {
+    html, body{
+        height: 297mm;
+        width: 210mm;
+        background-color: #00a1e5;
+    }
+
+    .ball {
+        display: none;
+    }
+
+    .print {
+        display: flex;
+    }
+
+    @page {
+        margin: 0;
+    }
+}
