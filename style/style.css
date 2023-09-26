@@ -44,6 +44,13 @@ body {
     max-width: 200px;
 }
 
+.ball__result-wrapper svg text {
+    text-anchor: middle;
+    dominant-baseline: middle;
+    font-size: 28px;
+    fill: #494850;
+}
+
 .ball__result {
     min-width: 72px;
     padding: 8px 12px;
