@@ -107,6 +107,11 @@ body {
     box-shadow: none;
     background: none;
     margin: 0;
+    outline: none;
+}
+
+.ball__input-field:focus-visible {
+    box-shadow: 0 0 0 3px rgba(177, 143, 207, 0.5);
 }
 
 .ball__form-inner {
@@ -114,6 +119,10 @@ body {
     align-items: flex-end;
     gap: 8px;
     margin-top: 16px;
+}
+
+.ball__form-inner .ball__input-label {
+    margin-right: -24px;
 }
 
 .is-btn-reset {
@@ -153,12 +162,17 @@ body {
     background-color: #494850;
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out;
     cursor: pointer;
+    outline: none;
 }
 .ball__btn:hover,
 .ball__btn:focus {
     color: #2C2C34;
     border-color: #B18FCF;
     background-color: #B18FCF;
+}
+
+.ball__btn:focus-visible {
+    box-shadow: 0 0 0 3px rgba(177, 143, 207, 0.5);
 }
 
 .ball__btn:active {
@@ -178,6 +192,10 @@ body {
     border-radius: 28px;
     background-color: #B18FCF;
     cursor: pointer;
+}
+
+.ball__checkbox-input:focus-visible + .ball__checkbox-label{
+    box-shadow: 0 0 0 3px rgba(177, 143, 207, 0.5);
 }
 
 @media (min-width: 1024px) {
