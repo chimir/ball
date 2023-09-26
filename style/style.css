@@ -180,8 +180,10 @@ body {
     cursor: pointer;
 }
 
-.ball__checkbox-label:active:after {
-     width: 44px
+@media (min-width: 1024px) {
+    .ball__checkbox-label:active:after {
+        width: 44px
+    }
 }
 
 .ball__checkbox-input:checked + .ball__checkbox-label:after {
